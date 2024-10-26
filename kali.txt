@@ -1,0 +1,50 @@
+Kali Linux with Docker for Windows
+
+
+Installing Kali
+Installing Tools
+Committing the Image
+Starting Kali Containers
+Installing Kali
+see available docker images on Docker Hub
+
+docker pull kalilinux/kali-rolling
+
+docker run -it kalilinux/kali-rolling /bin/bash
+
+Installing Tools
+apt update && apt full-upgrade && apt auto-remove && apt auto-clean
+
+apt-get install kali-linux-full
+
+See available packages
+
+kali-linux
+kali-linux-all
+kali-linux-forensic
+kali-linux-full
+kali-linux-gpu
+kali-linux-pwtools
+kali-linux-rfid
+kali-linux-sdr
+kali-linux-top10
+kali-linux-voip
+kali-linux-web
+kali-linux-wireless
+Checked contained programs in packages:
+
+apt-cache show kali-linux-wireless |grep Depends
+
+Committing the Image
+docker ps -a
+
+docker start {containerID}
+docker attach {containerID}
+docker commit {containerID} kali
+docker images
+docker rm {containerID}
+
+Starting Kali Containers
+docker run -ti -rm kali /bin/bash
+
+docker run -it --rm -p 4444:4444 kali
